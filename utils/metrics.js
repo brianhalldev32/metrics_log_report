@@ -1,4 +1,4 @@
-const ONE_HOUR = 3600 * 1000; // ms
+const TWO_HOUR = 3600 * 2000; // ms
 
 const storage = require('../db');
 
@@ -22,7 +22,7 @@ exports.getReports = function (metricsKey) {
 
   let result = 0;
   Object.entries(storage[metricsKey]).forEach(([timestamp, value]) => {
-    if (timestamp >= currentTimestamp - ONE_HOUR) {
+    if (timestamp >= currentTimestamp - TWO_HOUR) {
       result += value;
     }
   });
